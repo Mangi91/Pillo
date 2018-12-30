@@ -12,9 +12,11 @@
 		0D2EE17721D9832F00912A4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D2EE17521D9832F00912A4F /* Main.storyboard */; };
 		0D2EE17921D9833000912A4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D2EE17821D9833000912A4F /* Assets.xcassets */; };
 		0D2EE17C21D9833000912A4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D2EE17A21D9833000912A4F /* LaunchScreen.storyboard */; };
+		1C349E257A51A87B3BFA0916 /* Pods_Pillo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9428BC5995BD3DE900B45A4E /* Pods_Pillo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		029F9BCAAC6CB773308BE08B /* Pods-Pillo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pillo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pillo/Pods-Pillo.release.xcconfig"; sourceTree = "<group>"; };
 		0D2EE16E21D9832F00912A4F /* Pillo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pillo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D2EE17121D9832F00912A4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D2EE17321D9832F00912A4F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		0D2EE17821D9833000912A4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D2EE17B21D9833000912A4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D2EE17D21D9833000912A4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A5746A43033C9261324A31F /* Pods-Pillo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pillo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pillo/Pods-Pillo.debug.xcconfig"; sourceTree = "<group>"; };
+		9428BC5995BD3DE900B45A4E /* Pods_Pillo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pillo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C349E257A51A87B3BFA0916 /* Pods_Pillo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		044739D6B4A0607AF77067A6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9428BC5995BD3DE900B45A4E /* Pods_Pillo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		0D2EE16521D9832F00912A4F = {
 			isa = PBXGroup;
 			children = (
 				0D2EE17021D9832F00912A4F /* Pillo */,
 				0D2EE16F21D9832F00912A4F /* Products */,
+				F014B940F856D8B7D91691CE /* Pods */,
+				044739D6B4A0607AF77067A6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +79,15 @@
 			path = Pillo;
 			sourceTree = "<group>";
 		};
+		F014B940F856D8B7D91691CE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7A5746A43033C9261324A31F /* Pods-Pillo.debug.xcconfig */,
+				029F9BCAAC6CB773308BE08B /* Pods-Pillo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D2EE18021D9833000912A4F /* Build configuration list for PBXNativeTarget "Pillo" */;
 			buildPhases = (
+				AA2429505C2E68685733B0EB /* [CP] Check Pods Manifest.lock */,
 				0D2EE16A21D9832F00912A4F /* Sources */,
 				0D2EE16B21D9832F00912A4F /* Frameworks */,
 				0D2EE16C21D9832F00912A4F /* Resources */,
+				4402D04902D3798ED786CE9F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +155,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4402D04902D3798ED786CE9F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Pillo/Pods-Pillo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pillo/Pods-Pillo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AA2429505C2E68685733B0EB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pillo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0D2EE16A21D9832F00912A4F /* Sources */ = {
@@ -280,6 +353,7 @@
 		};
 		0D2EE18121D9833000912A4F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A5746A43033C9261324A31F /* Pods-Pillo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +372,7 @@
 		};
 		0D2EE18221D9833000912A4F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 029F9BCAAC6CB773308BE08B /* Pods-Pillo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

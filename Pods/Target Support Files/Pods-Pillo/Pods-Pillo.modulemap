@@ -1,0 +1,6 @@
+framework module Pods_Pillo {
+  umbrella header "Pods-Pillo-umbrella.h"
+
+  export *
+  module * { export * }
+}
