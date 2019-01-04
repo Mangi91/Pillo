@@ -8,10 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		0D2EE17221D9832F00912A4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2EE17121D9832F00912A4F /* AppDelegate.swift */; };
-		0D2EE17421D9832F00912A4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2EE17321D9832F00912A4F /* ViewController.swift */; };
+		0D2EE17421D9832F00912A4F /* CallingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2EE17321D9832F00912A4F /* CallingViewController.swift */; };
 		0D2EE17721D9832F00912A4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D2EE17521D9832F00912A4F /* Main.storyboard */; };
 		0D2EE17921D9833000912A4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D2EE17821D9833000912A4F /* Assets.xcassets */; };
 		0D2EE17C21D9833000912A4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D2EE17A21D9833000912A4F /* LaunchScreen.storyboard */; };
+		0D766E7D21DEDDBB002D379B /* CareFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D766E7C21DEDDBB002D379B /* CareFriendsViewController.swift */; };
+		0D766E7F21DEEEBD002D379B /* CareFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D766E7E21DEEEBD002D379B /* CareFriendTableViewCell.swift */; };
+		0DDC2DE421DB08B500222802 /* RippleAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0DDC2DE321DB08B400222802 /* RippleAnimation.json */; };
 		1C349E257A51A87B3BFA0916 /* Pods_Pillo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9428BC5995BD3DE900B45A4E /* Pods_Pillo.framework */; };
 /* End PBXBuildFile section */
 
@@ -19,11 +22,14 @@
 		029F9BCAAC6CB773308BE08B /* Pods-Pillo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pillo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pillo/Pods-Pillo.release.xcconfig"; sourceTree = "<group>"; };
 		0D2EE16E21D9832F00912A4F /* Pillo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pillo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D2EE17121D9832F00912A4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0D2EE17321D9832F00912A4F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0D2EE17321D9832F00912A4F /* CallingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallingViewController.swift; sourceTree = "<group>"; };
 		0D2EE17621D9832F00912A4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0D2EE17821D9833000912A4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D2EE17B21D9833000912A4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D2EE17D21D9833000912A4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D766E7C21DEDDBB002D379B /* CareFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareFriendsViewController.swift; sourceTree = "<group>"; };
+		0D766E7E21DEEEBD002D379B /* CareFriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareFriendTableViewCell.swift; sourceTree = "<group>"; };
+		0DDC2DE321DB08B400222802 /* RippleAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RippleAnimation.json; sourceTree = "<group>"; };
 		7A5746A43033C9261324A31F /* Pods-Pillo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pillo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pillo/Pods-Pillo.debug.xcconfig"; sourceTree = "<group>"; };
 		9428BC5995BD3DE900B45A4E /* Pods_Pillo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pillo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -70,11 +76,14 @@
 			isa = PBXGroup;
 			children = (
 				0D2EE17121D9832F00912A4F /* AppDelegate.swift */,
-				0D2EE17321D9832F00912A4F /* ViewController.swift */,
+				0D2EE17321D9832F00912A4F /* CallingViewController.swift */,
+				0D766E7C21DEDDBB002D379B /* CareFriendsViewController.swift */,
 				0D2EE17521D9832F00912A4F /* Main.storyboard */,
 				0D2EE17821D9833000912A4F /* Assets.xcassets */,
 				0D2EE17A21D9833000912A4F /* LaunchScreen.storyboard */,
 				0D2EE17D21D9833000912A4F /* Info.plist */,
+				0DDC2DE321DB08B400222802 /* RippleAnimation.json */,
+				0D766E7E21DEEEBD002D379B /* CareFriendTableViewCell.swift */,
 			);
 			path = Pillo;
 			sourceTree = "<group>";
@@ -150,6 +159,7 @@
 			files = (
 				0D2EE17C21D9833000912A4F /* LaunchScreen.storyboard in Resources */,
 				0D2EE17921D9833000912A4F /* Assets.xcassets in Resources */,
+				0DDC2DE421DB08B500222802 /* RippleAnimation.json in Resources */,
 				0D2EE17721D9832F00912A4F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,8 +218,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D2EE17421D9832F00912A4F /* ViewController.swift in Sources */,
+				0D2EE17421D9832F00912A4F /* CallingViewController.swift in Sources */,
 				0D2EE17221D9832F00912A4F /* AppDelegate.swift in Sources */,
+				0D766E7F21DEEEBD002D379B /* CareFriendTableViewCell.swift in Sources */,
+				0D766E7D21DEDDBB002D379B /* CareFriendsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,7 +378,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.manuelcubillo.Pillo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -385,7 +397,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.manuelcubillo.Pillo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
