@@ -11,20 +11,46 @@ import UIKit
 class CareFriendTableViewCell: UITableViewCell {
     @IBOutlet weak var friendImageView: UIImageView!
     @IBOutlet weak var friendName: UILabel!
+    @IBOutlet weak var friendRequestStatus: UILabel!
+    @IBOutlet weak var phoneIcon: UIImageView!
+    
+    private var friendCenterConstraint: NSLayoutConstraint?
+    public var friendCenterYPriority: Float {
+        get {
+            if let priority = friendCenterConstraint?.priority {
+                return priority.rawValue
+            } else {
+                return 0
+            }
+        } set(newPriority) {
+            if let _ = friendCenterConstraint?.priority {
+                friendCenterConstraint!.priority = UILayoutPriority(rawValue: newPriority)
+            }
+        }
+    }
     
     override func awakeFromNib() {
-        super.awakeFromNib()        
+        super.awakeFromNib()
+        
         //make circle
         self.friendImageView.layer.borderWidth = 1
         self.friendImageView.layer.masksToBounds = false
         self.friendImageView.layer.borderColor = UIColor.clear.cgColor
         self.friendImageView.layer.cornerRadius = self.friendImageView.frame.height/2
         self.friendImageView.clipsToBounds = true
+        
+        friendCenterConstraint = findConstraint("friendNameCenterY")
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    private func findConstraint(_ constraint: String) -> NSLayoutConstraint? {
+        for c in self.contentView.constraints {
+            if let id = c.identifier {
+                if id == constraint {
+                    return c
+                }
+            }
+        }
+        
+        return nil
     }
 }

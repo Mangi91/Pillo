@@ -10,16 +10,22 @@ import UIKit
 
 class CareFriendsViewController: UIViewController {
     @IBOutlet weak var friendsTableView: UITableView!
+    @IBOutlet weak var carefriendsTitleLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var careTeamLabelTopConstraint: NSLayoutConstraint!
+    
     var friends = [
-        (imageName:"alicia",friendName:"Alicia Cory"),
-        (imageName:"bry",friendName:"Bryan Hanson"),
-        (imageName:"celina",friendName:"Celina Thompson"),
-        (imageName:"flor",friendName:"Flor Roberts"),
-        (imageName:"frances",friendName:"Frances Gonzales"),
-        (imageName:"isa",friendName:"Isabel Ramirez"),
-        (imageName:"john",friendName:"John Rhodes"),
-        (imageName:"lucy",friendName:"Lucy Potter"),
-        (imageName:"ross",friendName:"Ross Barrymore")
+        (imageName:"alicia",friendName:"Alicia Cory", isFriend: true),
+        (imageName:"bry",friendName:"Bryan Hanson", isFriend: true),
+        (imageName:"celina",friendName:"Celina Thompson", isFriend: false),
+        (imageName:"flor",friendName:"Flor Roberts", isFriend: true),
+        (imageName:"frances",friendName:"Frances Gonzales", isFriend: true),
+        (imageName:"isa",friendName:"Isabel Ramirez", isFriend: false),
+        (imageName:"john",friendName:"John Rhodes", isFriend: true),
+        (imageName:"lucy",friendName:"Lucy Potter", isFriend: true),
+        (imageName:"ross",friendName:"Ross Barrymore", isFriend: true),
+        (imageName:"joanne", friendName:"Joanne Wade", isFriend: false),
+        (imageName:"hazel", friendName:"Hazel Mendoza", isFriend: true),
+        (imageName:"jackie", friendName:"Jackie Holt", isFriend: false)
     ]
     
     override var prefersStatusBarHidden: Bool {
@@ -28,6 +34,11 @@ class CareFriendsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //setting up constraints for non iPhone-X phones
+        let device = UIDevice.current.name
+        carefriendsTitleLabelTopConstraint.priority = device != "iPhone X" ? UILayoutPriority(1000) : UILayoutPriority(998)
+        careTeamLabelTopConstraint.priority = device != "iPhone X" ? UILayoutPriority(1000) : UILayoutPriority(998)
     }
     
     override func viewDidLayoutSubviews() {
@@ -36,14 +47,6 @@ class CareFriendsViewController: UIViewController {
         //rounded corners
         friendsTableView.layer.cornerRadius = 5
         friendsTableView.clipsToBounds = true
-        
-        //shadow
-//        friendsTableView.layer.shadowPath = UIBezierPath(roundedRect: friendsTableView.bounds, cornerRadius: friendsTableView.layer.cornerRadius).cgPath
-//        friendsTableView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor
-//        friendsTableView.layer.shadowOpacity = 0.5
-//        friendsTableView.layer.shadowOffset = CGSize(width: 0, height: 0)
-//        friendsTableView.layer.shadowRadius = 1
-//        friendsTableView.layer.masksToBounds = true
     }
 }
 
@@ -58,6 +61,9 @@ extension CareFriendsViewController: UITableViewDelegate, UITableViewDataSource 
         let cell = tableView.dequeueReusableCell(withIdentifier:"friendCell", for: indexPath) as! CareFriendTableViewCell
         cell.friendImageView.image = UIImage(named: friend.imageName)
         cell.friendName.text = friend.friendName
+        cell.friendCenterYPriority = friend.isFriend ? 300 : 200
+        cell.friendRequestStatus.alpha = friend.isFriend ? 0.0 : 1.0
+        cell.phoneIcon.alpha = friend.isFriend ? 1.0 : 0.0
         
         return cell
     }
