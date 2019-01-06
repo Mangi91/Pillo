@@ -13,7 +13,7 @@ class CareFriendsViewController: UIViewController {
     @IBOutlet weak var carefriendsTitleLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var careTeamLabelTopConstraint: NSLayoutConstraint!
     
-    var friends = [
+    private var friends = [
         (imageName:"alicia",friendName:"Alicia Cory", isFriend: true),
         (imageName:"bry",friendName:"Bryan Hanson", isFriend: true),
         (imageName:"celina",friendName:"Celina Thompson", isFriend: false),
@@ -48,6 +48,15 @@ class CareFriendsViewController: UIViewController {
         friendsTableView.layer.cornerRadius = 5
         friendsTableView.clipsToBounds = true
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "callFriend" {
+            let friend = sender as! (imageName:String,friendName:String)
+            let vc = segue.destination as! CallingViewController
+            vc.friendName = friend.friendName
+            vc.friendImageName = friend.imageName
+        }
+    }
 }
 
 extension CareFriendsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -66,6 +75,14 @@ extension CareFriendsViewController: UITableViewDelegate, UITableViewDataSource 
         cell.phoneIcon.alpha = friend.isFriend ? 1.0 : 0.0
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let friend = friends[indexPath.row]
+        
+        if friend.isFriend {
+            performSegue(withIdentifier:"callFriend", sender:(imageName:friend.imageName,friendName:friend.friendName))
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

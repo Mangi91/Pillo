@@ -11,6 +11,11 @@ import Lottie
 
 class CallingViewController: UIViewController {
     @IBOutlet weak var animationViewContainer: UIView!
+    @IBOutlet weak var friendNameLabel: UILabel!
+    
+    public var friendImageName: String!
+    public var friendName: String!
+    
     private var animationView:LOTAnimationView?
     
     override var prefersStatusBarHidden: Bool {
@@ -19,14 +24,20 @@ class CallingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupAnimationView()
-        setupFriendImageView()
+        setupFriend(withFriendName:friendName, andFriendImage: UIImage(named:friendImageName)!)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
         createGradientBackground()
         animationView?.play()
+    }
+    
+    @IBAction func hangUp(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     private func setupAnimationView() {
@@ -45,6 +56,7 @@ class CallingViewController: UIViewController {
     }
     
     private func createGradientBackground() {
+        //blues
         let color1 = UIColor(red:77/255, green:130/255, blue:230/255, alpha:1.0).cgColor
         let color2 = UIColor(red:71/255, green:123/255, blue:225/255, alpha:1.0).cgColor
         let color3 = UIColor(red:67/255, green:119/255, blue:220/255, alpha:1.0).cgColor
@@ -58,9 +70,12 @@ class CallingViewController: UIViewController {
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
-    private func setupFriendImageView() {
+    private func setupFriend(withFriendName: String, andFriendImage image: UIImage) {
+        friendNameLabel.text = friendName
+        
+        //setup friend imageview
         let imageView = UIImageView()
-        imageView.image = UIImage(named:"celina")
+        imageView.image = image
         imageView.contentMode = .scaleAspectFit
         imageView.frame = CGRect(x:-95, y:-95, width: 190, height: 190)
         imageView.layer.borderWidth = 1
@@ -70,7 +85,6 @@ class CallingViewController: UIViewController {
         imageView.clipsToBounds = true
         
         animationView?.addSubview(imageView, toKeypathLayer:LOTKeypath(string:"Photo"))
-        self.view.addSubview(animationView!)
     }
 }
 

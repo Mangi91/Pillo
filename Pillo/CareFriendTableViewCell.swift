@@ -15,6 +15,7 @@ class CareFriendTableViewCell: UITableViewCell {
     @IBOutlet weak var phoneIcon: UIImageView!
     
     private var friendCenterConstraint: NSLayoutConstraint?
+    
     public var friendCenterYPriority: Float {
         get {
             if let priority = friendCenterConstraint?.priority {
@@ -39,13 +40,13 @@ class CareFriendTableViewCell: UITableViewCell {
         self.friendImageView.layer.cornerRadius = self.friendImageView.frame.height/2
         self.friendImageView.clipsToBounds = true
         
-        friendCenterConstraint = findConstraint("friendNameCenterY")
+        friendCenterConstraint = findConstraint(withIdentifier:"friendNameCenterY")
     }
     
-    private func findConstraint(_ constraint: String) -> NSLayoutConstraint? {
+    private func findConstraint(withIdentifier identifier: String) -> NSLayoutConstraint? {
         for c in self.contentView.constraints {
             if let id = c.identifier {
-                if id == constraint {
+                if id == identifier {
                     return c
                 }
             }
