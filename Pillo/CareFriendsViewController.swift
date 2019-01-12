@@ -83,6 +83,8 @@ extension CareFriendsViewController: UITableViewDelegate, UITableViewDataSource 
         if friend.isFriend {
             performSegue(withIdentifier:"callFriend", sender:(imageName:friend.imageName,friendName:friend.friendName))
         }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

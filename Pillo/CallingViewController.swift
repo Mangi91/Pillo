@@ -12,11 +12,13 @@ import Lottie
 class CallingViewController: UIViewController {
     @IBOutlet weak var animationViewContainer: UIView!
     @IBOutlet weak var friendNameLabel: UILabel!
+    @IBOutlet weak var friendNameLabelTop: NSLayoutConstraint!
     
     public var friendImageName: String!
     public var friendName: String!
     
     private var animationView:LOTAnimationView?
+    private var segueToAnswerVC = true
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -24,6 +26,10 @@ class CallingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //setting up constraints for non iPhone-X phones
+        let device = UIDevice.current.name
+        friendNameLabelTop.priority = device != "iPhone X" ? UILayoutPriority(1000) : UILayoutPriority(998)
         
         setupAnimationView()
         setupFriend(withFriendName:friendName, andFriendImage: UIImage(named:friendImageName)!)
@@ -34,10 +40,25 @@ class CallingViewController: UIViewController {
         
         createGradientBackground()
         animationView?.play()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            if self.segueToAnswerVC {
+                print("Move to Answering VC")
+                self.performSegue(withIdentifier:"answerFriend", sender: self.friendName)
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "answerFriend" {
+            let vc = segue.destination as! AnsweringViewController
+            vc.callingName = friendName
+        }
     }
     
     @IBAction func hangUp(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+        segueToAnswerVC = false
+        self.dismiss(animated: false, completion: nil)
     }
     
     private func setupAnimationView() {

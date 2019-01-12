@@ -16,6 +16,10 @@ class AnsweringViewController: UIViewController {
     @IBOutlet weak var timerContainerView: UIView!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var callingLabel: UILabel!
+    @IBOutlet weak var cameraViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var callingLabelTopConstraint: NSLayoutConstraint!
+    
+    public var callingName:String!
     
     //camera properties
     private var session: AVCaptureSession?
@@ -35,6 +39,13 @@ class AnsweringViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        callingLabel.text = callingName
+        
+        //setting up constraints for non iPhone-X phones
+        let device = UIDevice.current.name
+        cameraViewTopConstraint.priority = device != "iPhone X" ? UILayoutPriority(1000) : UILayoutPriority(998)
+        callingLabelTopConstraint.priority = device != "iPhone X" ? UILayoutPriority(1000) : UILayoutPriority(998)
+        
         //rounded corners
         cameraView.layer.cornerRadius = 5
         cameraView.clipsToBounds = true
@@ -44,14 +55,24 @@ class AnsweringViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AnsweringViewController.flipCameraView))
         cameraFlipImageView.addGestureRecognizer(tapGesture)
         
-        setupCameraView(withPosition: currentCamera)
+        if !Platform.isSimulator {
+            setupCameraView(withPosition: currentCamera)
+        }
         
         let displayLink = CADisplayLink(target: self, selector: #selector(updateTimer))
         displayLink.add(to: .main, forMode: .default)
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if !Platform.isSimulator {
+            session?.startRunning()
+        }
+    }
+    
     @IBAction func hangupButtonTapped(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+        self.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
     }
     
     @objc private func updateTimer() {
@@ -73,32 +94,34 @@ class AnsweringViewController: UIViewController {
     }
     
     @objc private func flipCameraView() {
-        session?.beginConfiguration()
-        
-        currentCamera = currentCamera == .front ? .back : .front
-        let device = getDevice(position: currentCamera)
-        
-        for input in (session?.inputs)! {
-            session?.removeInput(input as! AVCaptureDeviceInput)
+        if !Platform.isSimulator {
+            session?.beginConfiguration()
+            
+            currentCamera = currentCamera == .front ? .back : .front
+            let device = getDevice(position: currentCamera)
+            
+            for input in (session?.inputs)! {
+                session?.removeInput(input as! AVCaptureDeviceInput)
+            }
+            
+            let input: AVCaptureDeviceInput
+            
+            do {
+                input  = try AVCaptureDeviceInput(device: device!)
+            } catch {
+                return
+            }
+            
+            if (session?.canAddInput(input))! {
+                session?.addInput(input)
+            }
+            
+            self.session?.commitConfiguration()
+            
+            UIView.transition(with:camerViewContainer, duration: 0.5, options: .transitionFlipFromRight, animations:{
+                self.camerViewContainer.backgroundColor = UIColor.clear
+            }, completion:nil)
         }
-        
-        let input: AVCaptureDeviceInput
-        
-        do {
-            input  = try AVCaptureDeviceInput(device: device!)
-        } catch {
-            return
-        }
-        
-        if (session?.canAddInput(input))! {
-            session?.addInput(input)
-        }
-        
-        self.session?.commitConfiguration()
-        
-        UIView.transition(with:camerViewContainer, duration: 0.5, options: .transitionFlipFromRight, animations:{
-            self.camerViewContainer.backgroundColor = UIColor.clear
-        }, completion:nil)
     }
     
     private func setupCameraView(withPosition position: AVCaptureDevice.Position) {
@@ -124,7 +147,7 @@ class AnsweringViewController: UIViewController {
             previewLayer.frame = cameraView.bounds
             
             cameraView.layer.insertSublayer(previewLayer, at: 0)
-            session?.startRunning()
+            //session?.startRunning()
         } catch {
             input = nil
         }
