@@ -348,7 +348,7 @@
         <image name="audio" width="512" height="512"/>
         <image name="camera" width="512" height="512"/>
         <image name="camera-flip-shadow" width="512" height="512"/>
-        <image name="doctor" width="1200" height="630"/>
+        <image name="doctor" width="6000" height="4000"/>
         <image name="hang-up" width="512" height="512"/>
         <image name="mute" width="512" height="512"/>
         <image name="phone-big" width="512" height="512"/>
