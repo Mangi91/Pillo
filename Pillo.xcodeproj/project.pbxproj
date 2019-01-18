@@ -14,6 +14,7 @@
 		0D2EE17C21D9833000912A4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D2EE17A21D9833000912A4F /* LaunchScreen.storyboard */; };
 		0D766E7D21DEDDBB002D379B /* CareFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D766E7C21DEDDBB002D379B /* CareFriendsViewController.swift */; };
 		0D766E7F21DEEEBD002D379B /* CareFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D766E7E21DEEEBD002D379B /* CareFriendTableViewCell.swift */; };
+		0D9A5C1921EBC75000BD5BCF /* tone-beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0D9A5C1821EBC75000BD5BCF /* tone-beep.wav */; };
 		0DDC2DE421DB08B500222802 /* RippleAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0DDC2DE321DB08B400222802 /* RippleAnimation.json */; };
 		0DF3450F21E82FDE00FC4E42 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF3450E21E82FDE00FC4E42 /* Platform.swift */; };
 		0DFBDDF421E1BCCB00D67698 /* AnsweringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFBDDF321E1BCCB00D67698 /* AnsweringViewController.swift */; };
@@ -31,6 +32,7 @@
 		0D2EE17D21D9833000912A4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D766E7C21DEDDBB002D379B /* CareFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareFriendsViewController.swift; sourceTree = "<group>"; };
 		0D766E7E21DEEEBD002D379B /* CareFriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareFriendTableViewCell.swift; sourceTree = "<group>"; };
+		0D9A5C1821EBC75000BD5BCF /* tone-beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "tone-beep.wav"; sourceTree = "<group>"; };
 		0DDC2DE321DB08B400222802 /* RippleAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RippleAnimation.json; sourceTree = "<group>"; };
 		0DF3450E21E82FDE00FC4E42 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		0DFBDDF321E1BCCB00D67698 /* AnsweringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnsweringViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				0D2EE17321D9832F00912A4F /* CallingViewController.swift */,
 				0D766E7C21DEDDBB002D379B /* CareFriendsViewController.swift */,
 				0DFBDDF321E1BCCB00D67698 /* AnsweringViewController.swift */,
+				0D9A5C1821EBC75000BD5BCF /* tone-beep.wav */,
 				0D2EE17521D9832F00912A4F /* Main.storyboard */,
 				0D2EE17821D9833000912A4F /* Assets.xcassets */,
 				0D2EE17A21D9833000912A4F /* LaunchScreen.storyboard */,
@@ -167,6 +170,7 @@
 				0D2EE17921D9833000912A4F /* Assets.xcassets in Resources */,
 				0DDC2DE421DB08B500222802 /* RippleAnimation.json in Resources */,
 				0D2EE17721D9832F00912A4F /* Main.storyboard in Resources */,
+				0D9A5C1921EBC75000BD5BCF /* tone-beep.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

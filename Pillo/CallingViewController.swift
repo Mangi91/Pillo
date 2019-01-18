@@ -8,6 +8,7 @@
 
 import UIKit
 import Lottie
+import AVFoundation
 
 class CallingViewController: UIViewController {
     @IBOutlet weak var animationViewContainer: UIView!
@@ -19,6 +20,8 @@ class CallingViewController: UIViewController {
     
     private var animationView:LOTAnimationView?
     private var segueToAnswerVC = true
+    private var playSound = true
+    private var soundEffect: AVAudioPlayer?
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -33,6 +36,7 @@ class CallingViewController: UIViewController {
         
         setupAnimationView()
         setupFriend(withFriendName:friendName, andFriendImage: UIImage(named:friendImageName)!)
+        soundEffect = setupSoundEffect()
     }
     
     override func viewDidLayoutSubviews() {
@@ -40,10 +44,14 @@ class CallingViewController: UIViewController {
         
         createGradientBackground()
         animationView?.play()
+        soundEffect?.play(withDelay: 0.0, completion: {
+            self.continueSoundEffect(withDelay:3.0)
+        })
+
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
             if self.segueToAnswerVC {
-                print("Move to Answering VC")
+                self.playSound = false
                 self.performSegue(withIdentifier:"answerFriend", sender: self.friendName)
             }
         }
@@ -58,6 +66,7 @@ class CallingViewController: UIViewController {
     
     @IBAction func hangUp(_ sender: UIButton) {
         segueToAnswerVC = false
+        playSound = false
         self.dismiss(animated: false, completion: nil)
     }
     
@@ -106,6 +115,41 @@ class CallingViewController: UIViewController {
         imageView.clipsToBounds = true
         
         animationView?.addSubview(imageView, toKeypathLayer:LOTKeypath(string:"Photo"))
+    }
+    
+    private func setupSoundEffect() -> AVAudioPlayer? {
+        let path = Bundle.main.path(forResource: "tone-beep.wav", ofType:nil)!
+        let url = URL(fileURLWithPath: path)
+
+        do {
+            let tempSoundEffect = try AVAudioPlayer(contentsOf: url)
+            tempSoundEffect.numberOfLoops = 3
+            tempSoundEffect.prepareToPlay()
+            return tempSoundEffect
+        } catch {
+            return nil
+        }
+    }
+    
+    private func continueSoundEffect(withDelay delay: Double) {
+        if playSound {
+            soundEffect?.play(withDelay:delay, completion: {
+                self.continueSoundEffect(withDelay:delay)
+            })
+        } else {
+            self.soundEffect?.pause()
+        }
+    }
+}
+
+extension AVAudioPlayer {
+    func play(withDelay delay: Double, completion: (() -> Void)?) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+            self.play()
+            if let completion = completion {
+                completion()
+            }
+        }
     }
 }
 
