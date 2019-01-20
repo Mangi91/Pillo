@@ -32,32 +32,23 @@ class AnsweringViewController: UIViewController {
     private let animationDuration: Double = 1.0
     private var animationStarteDate = Date()
     
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
+    override var prefersStatusBarHidden: Bool { return true }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         callingLabel.text = callingName
         
-        //setting up constraints for non iPhone-X phones
-        let device = UIDevice.current.name
-        cameraViewTopConstraint.priority = device != "iPhone X" ? UILayoutPriority(1000) : UILayoutPriority(998)
-        callingLabelTopConstraint.priority = device != "iPhone X" ? UILayoutPriority(1000) : UILayoutPriority(998)
+        cameraViewTopConstraint.iPhoneXPriority(maxPriority: 1000, minPriority: 998)
+        callingLabelTopConstraint.iPhoneXPriority(maxPriority: 1000, minPriority: 998)
         
-        //rounded corners
-        cameraView.layer.cornerRadius = 5
-        cameraView.clipsToBounds = true
-        timerContainerView.layer.cornerRadius = 5
-        timerContainerView.clipsToBounds = true
+        cameraView.roundedCorners(radius:5)
+        timerContainerView.roundedCorners(radius:5)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AnsweringViewController.flipCameraView))
         cameraFlipImageView.addGestureRecognizer(tapGesture)
         
-        if !Platform.isSimulator {
-            setupCameraView(withPosition: currentCamera)
-        }
+        if !Platform.isSimulator { setupCameraView(withPosition: currentCamera) }
         
         let displayLink = CADisplayLink(target: self, selector: #selector(updateTimer))
         displayLink.add(to: .main, forMode: .default)
@@ -66,9 +57,7 @@ class AnsweringViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        if !Platform.isSimulator {
-            session?.startRunning()
-        }
+        if !Platform.isSimulator { session?.startRunning() }
     }
     
     @IBAction func hangupButtonTapped(_ sender: UIButton) {
@@ -84,9 +73,9 @@ class AnsweringViewController: UIViewController {
             let remainingSeconds = Int(totalSeconds) - minutes * 60;
             
             let minutesString = "\(minutes)".count > 1 ? "\(minutes)" : "0\(minutes)"
-            let remainingSeconsString = "\(remainingSeconds)".count > 1 ? "\(remainingSeconds)" : "0\(remainingSeconds)"
+            let remainingSecondsString = "\(remainingSeconds)".count > 1 ? "\(remainingSeconds)" : "0\(remainingSeconds)"
             
-            timerLabel.text = "\(minutesString):\(remainingSeconsString)"
+            timerLabel.text = "\(minutesString):\(remainingSecondsString)"
             
             totalSeconds += 1
             animationStarteDate = Date()
@@ -98,7 +87,7 @@ class AnsweringViewController: UIViewController {
             session?.beginConfiguration()
             
             currentCamera = currentCamera == .front ? .back : .front
-            let device = getDevice(position: currentCamera)
+            let device = AVCaptureDevice.getDevice(position: currentCamera)
             
             for input in (session?.inputs)! {
                 session?.removeInput(input as! AVCaptureDeviceInput)
@@ -128,7 +117,7 @@ class AnsweringViewController: UIViewController {
         session = AVCaptureSession()
         session?.sessionPreset = AVCaptureSession.Preset.photo
         
-        let camera = getDevice(position: position)
+        let camera = AVCaptureDevice.getDevice(position: position)
         
         do {
             input = try AVCaptureDeviceInput(device: camera!)
@@ -147,23 +136,8 @@ class AnsweringViewController: UIViewController {
             previewLayer.frame = cameraView.bounds
             
             cameraView.layer.insertSublayer(previewLayer, at: 0)
-            //session?.startRunning()
         } catch {
             input = nil
         }
-    }
-    
-    //Get the device (Front or Back)
-    private func getDevice(position: AVCaptureDevice.Position) -> AVCaptureDevice? {
-        let discoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [AVCaptureDevice.DeviceType.builtInWideAngleCamera], mediaType: AVMediaType.video, position: position)
-        let devices: [AVCaptureDevice] = discoverySession.devices
-        
-        for device in devices {
-            if(device.position == position) {
-                return device
-            }
-        }
-        
-        return nil
     }
 }

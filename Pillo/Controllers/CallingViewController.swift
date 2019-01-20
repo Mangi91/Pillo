@@ -23,35 +23,37 @@ class CallingViewController: UIViewController {
     private var playSound = true
     private var soundEffect: AVAudioPlayer?
     
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
+    override var prefersStatusBarHidden: Bool { return true }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //setting up constraints for non iPhone-X phones
-        let device = UIDevice.current.name
-        friendNameLabelTop.priority = device != "iPhone X" ? UILayoutPriority(1000) : UILayoutPriority(998)
-        
+        friendNameLabelTop.iPhoneXPriority(maxPriority: 1000, minPriority: 998)
         setupAnimationView()
         setupFriend(withFriendName:friendName, andFriendImage: UIImage(named:friendImageName)!)
-        soundEffect = setupSoundEffect()
+        soundEffect = AVAudioPlayer(withResource:"tone-beep.wav", numberOfLoops:3)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        createGradientBackground()
+        view.addGradientLayer(colors: [
+            UIColor.PilloRoyalBlue1.cgColor,
+            UIColor.PilloRoyalBlue2.cgColor,
+            UIColor.PilloRoyalBlue3.cgColor,
+            UIColor.PilloRoyalBlue4.cgColor,
+            UIColor.PilloMariner.cgColor
+        ], locations:[0.0, 0.20, 0.40, 0.6, 1.0])
+        
         animationView?.play()
         soundEffect?.play(withDelay: 0.0, completion: {
             self.continueSoundEffect(withDelay:3.0)
         })
 
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
             if self.segueToAnswerVC {
                 self.playSound = false
+                self.animationView?.pause()
                 self.performSegue(withIdentifier:"answerFriend", sender: self.friendName)
             }
         }
@@ -67,7 +69,8 @@ class CallingViewController: UIViewController {
     @IBAction func hangUp(_ sender: UIButton) {
         segueToAnswerVC = false
         playSound = false
-        self.dismiss(animated: false, completion: nil)
+        animationView?.pause()
+        dismiss(animated: false, completion: nil)
     }
     
     private func setupAnimationView() {
@@ -83,21 +86,6 @@ class CallingViewController: UIViewController {
             NSLayoutConstraint(item:animationViewContainer, attribute: .bottom, relatedBy: .equal, toItem: animationView, attribute: .bottom, multiplier: 1.0, constant: 0),
             NSLayoutConstraint(item:animationView as Any, attribute: .leading, relatedBy: .equal, toItem: animationViewContainer, attribute: .leading, multiplier: 1.0, constant: 0)
         ])
-    }
-    
-    private func createGradientBackground() {
-        //blues
-        let color1 = UIColor(red:77/255, green:130/255, blue:230/255, alpha:1.0).cgColor
-        let color2 = UIColor(red:71/255, green:123/255, blue:225/255, alpha:1.0).cgColor
-        let color3 = UIColor(red:67/255, green:119/255, blue:220/255, alpha:1.0).cgColor
-        let color4 = UIColor(red:63/255, green:115/255, blue:216/255, alpha:1.0).cgColor
-        let color5 = UIColor(red:52/255, green:103/255, blue:203/255, alpha:1.0).cgColor
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = self.view.bounds
-        gradientLayer.colors = [color1,color2,color3,color4,color5]
-        gradientLayer.locations = [0.0, 0.20, 0.40, 0.6, 1.0]
-        self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
     private func setupFriend(withFriendName: String, andFriendImage image: UIImage) {
@@ -116,21 +104,7 @@ class CallingViewController: UIViewController {
         
         animationView?.addSubview(imageView, toKeypathLayer:LOTKeypath(string:"Photo"))
     }
-    
-    private func setupSoundEffect() -> AVAudioPlayer? {
-        let path = Bundle.main.path(forResource: "tone-beep.wav", ofType:nil)!
-        let url = URL(fileURLWithPath: path)
-
-        do {
-            let tempSoundEffect = try AVAudioPlayer(contentsOf: url)
-            tempSoundEffect.numberOfLoops = 3
-            tempSoundEffect.prepareToPlay()
-            return tempSoundEffect
-        } catch {
-            return nil
-        }
-    }
-    
+        
     private func continueSoundEffect(withDelay delay: Double) {
         if playSound {
             soundEffect?.play(withDelay:delay, completion: {
@@ -141,16 +115,3 @@ class CallingViewController: UIViewController {
         }
     }
 }
-
-extension AVAudioPlayer {
-    func play(withDelay delay: Double, completion: (() -> Void)?) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-            self.play()
-            if let completion = completion {
-                completion()
-            }
-        }
-    }
-}
-
-

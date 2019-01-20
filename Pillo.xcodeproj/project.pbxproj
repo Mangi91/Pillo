@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D14F4A721F4F5150087D039 /* UIView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D14F4A621F4F5150087D039 /* UIView+Helpers.swift */; };
+		0D14F4A921F4F7500087D039 /* UIColor+PilloColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D14F4A821F4F7500087D039 /* UIColor+PilloColors.swift */; };
+		0D14F4AB21F4FDC50087D039 /* AVAudioPlayer+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D14F4AA21F4FDC50087D039 /* AVAudioPlayer+Helpers.swift */; };
+		0D14F4AD21F51A170087D039 /* NSLayoutConstraint+DevicePriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D14F4AC21F51A170087D039 /* NSLayoutConstraint+DevicePriority.swift */; };
+		0D14F4B021F51D020087D039 /* CareFriendsVC+TableViewDelegateDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D14F4AF21F51D020087D039 /* CareFriendsVC+TableViewDelegateDataSource.swift */; };
+		0D14F4B321F526C60087D039 /* AVCaptureDevice+GetDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D14F4B221F526C60087D039 /* AVCaptureDevice+GetDevice.swift */; };
 		0D2EE17221D9832F00912A4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2EE17121D9832F00912A4F /* AppDelegate.swift */; };
 		0D2EE17421D9832F00912A4F /* CallingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2EE17321D9832F00912A4F /* CallingViewController.swift */; };
 		0D2EE17721D9832F00912A4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D2EE17521D9832F00912A4F /* Main.storyboard */; };
@@ -23,6 +29,12 @@
 
 /* Begin PBXFileReference section */
 		029F9BCAAC6CB773308BE08B /* Pods-Pillo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pillo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pillo/Pods-Pillo.release.xcconfig"; sourceTree = "<group>"; };
+		0D14F4A621F4F5150087D039 /* UIView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
+		0D14F4A821F4F7500087D039 /* UIColor+PilloColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+PilloColors.swift"; sourceTree = "<group>"; };
+		0D14F4AA21F4FDC50087D039 /* AVAudioPlayer+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVAudioPlayer+Helpers.swift"; sourceTree = "<group>"; };
+		0D14F4AC21F51A170087D039 /* NSLayoutConstraint+DevicePriority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+DevicePriority.swift"; sourceTree = "<group>"; };
+		0D14F4AF21F51D020087D039 /* CareFriendsVC+TableViewDelegateDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CareFriendsVC+TableViewDelegateDataSource.swift"; sourceTree = "<group>"; };
+		0D14F4B221F526C60087D039 /* AVCaptureDevice+GetDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVCaptureDevice+GetDevice.swift"; sourceTree = "<group>"; };
 		0D2EE16E21D9832F00912A4F /* Pillo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pillo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D2EE17121D9832F00912A4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D2EE17321D9832F00912A4F /* CallingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallingViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +72,63 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		0D14F4A021F4EF090087D039 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0D14F4A121F4EF270087D039 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0D14F4B121F51DB40087D039 /* Extensions */,
+				0D766E7E21DEEEBD002D379B /* CareFriendTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0D14F4A221F4EF320087D039 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0D14F4AE21F51CD60087D039 /* Extensions */,
+				0D2EE17321D9832F00912A4F /* CallingViewController.swift */,
+				0D766E7C21DEDDBB002D379B /* CareFriendsViewController.swift */,
+				0DFBDDF321E1BCCB00D67698 /* AnsweringViewController.swift */,
+				0DF3450E21E82FDE00FC4E42 /* Platform.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0D14F4A321F4F0430087D039 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0D9A5C1821EBC75000BD5BCF /* tone-beep.wav */,
+				0DDC2DE321DB08B400222802 /* RippleAnimation.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0D14F4AE21F51CD60087D039 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0D14F4AA21F4FDC50087D039 /* AVAudioPlayer+Helpers.swift */,
+				0D14F4AC21F51A170087D039 /* NSLayoutConstraint+DevicePriority.swift */,
+				0D14F4B221F526C60087D039 /* AVCaptureDevice+GetDevice.swift */,
+				0D14F4AF21F51D020087D039 /* CareFriendsVC+TableViewDelegateDataSource.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0D14F4B121F51DB40087D039 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0D14F4A821F4F7500087D039 /* UIColor+PilloColors.swift */,
+				0D14F4A621F4F5150087D039 /* UIView+Helpers.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		0D2EE16521D9832F00912A4F = {
 			isa = PBXGroup;
 			children = (
@@ -81,18 +150,15 @@
 		0D2EE17021D9832F00912A4F /* Pillo */ = {
 			isa = PBXGroup;
 			children = (
+				0D14F4A021F4EF090087D039 /* Model */,
+				0D14F4A121F4EF270087D039 /* Views */,
+				0D14F4A221F4EF320087D039 /* Controllers */,
+				0D14F4A321F4F0430087D039 /* Resources */,
 				0D2EE17121D9832F00912A4F /* AppDelegate.swift */,
-				0D2EE17321D9832F00912A4F /* CallingViewController.swift */,
-				0D766E7C21DEDDBB002D379B /* CareFriendsViewController.swift */,
-				0DFBDDF321E1BCCB00D67698 /* AnsweringViewController.swift */,
-				0D9A5C1821EBC75000BD5BCF /* tone-beep.wav */,
 				0D2EE17521D9832F00912A4F /* Main.storyboard */,
 				0D2EE17821D9833000912A4F /* Assets.xcassets */,
 				0D2EE17A21D9833000912A4F /* LaunchScreen.storyboard */,
 				0D2EE17D21D9833000912A4F /* Info.plist */,
-				0DDC2DE321DB08B400222802 /* RippleAnimation.json */,
-				0D766E7E21DEEEBD002D379B /* CareFriendTableViewCell.swift */,
-				0DF3450E21E82FDE00FC4E42 /* Platform.swift */,
 			);
 			path = Pillo;
 			sourceTree = "<group>";
@@ -228,10 +294,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D14F4AB21F4FDC50087D039 /* AVAudioPlayer+Helpers.swift in Sources */,
+				0D14F4A921F4F7500087D039 /* UIColor+PilloColors.swift in Sources */,
 				0DF3450F21E82FDE00FC4E42 /* Platform.swift in Sources */,
 				0DFBDDF421E1BCCB00D67698 /* AnsweringViewController.swift in Sources */,
+				0D14F4B321F526C60087D039 /* AVCaptureDevice+GetDevice.swift in Sources */,
+				0D14F4B021F51D020087D039 /* CareFriendsVC+TableViewDelegateDataSource.swift in Sources */,
 				0D2EE17421D9832F00912A4F /* CallingViewController.swift in Sources */,
+				0D14F4A721F4F5150087D039 /* UIView+Helpers.swift in Sources */,
 				0D2EE17221D9832F00912A4F /* AppDelegate.swift in Sources */,
+				0D14F4AD21F51A170087D039 /* NSLayoutConstraint+DevicePriority.swift in Sources */,
 				0D766E7F21DEEEBD002D379B /* CareFriendTableViewCell.swift in Sources */,
 				0D766E7D21DEDDBB002D379B /* CareFriendsViewController.swift in Sources */,
 			);
