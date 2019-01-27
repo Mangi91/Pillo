@@ -20,6 +20,7 @@
 		0D2EE17C21D9833000912A4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D2EE17A21D9833000912A4F /* LaunchScreen.storyboard */; };
 		0D766E7D21DEDDBB002D379B /* CareFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D766E7C21DEDDBB002D379B /* CareFriendsViewController.swift */; };
 		0D766E7F21DEEEBD002D379B /* CareFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D766E7E21DEEEBD002D379B /* CareFriendTableViewCell.swift */; };
+		0D96844521FD47F800A8DC00 /* UIDevice+DeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D96844421FD47F800A8DC00 /* UIDevice+DeviceType.swift */; };
 		0D9A5C1921EBC75000BD5BCF /* tone-beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0D9A5C1821EBC75000BD5BCF /* tone-beep.wav */; };
 		0DDC2DE421DB08B500222802 /* RippleAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0DDC2DE321DB08B400222802 /* RippleAnimation.json */; };
 		0DF3450F21E82FDE00FC4E42 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF3450E21E82FDE00FC4E42 /* Platform.swift */; };
@@ -44,6 +45,7 @@
 		0D2EE17D21D9833000912A4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D766E7C21DEDDBB002D379B /* CareFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareFriendsViewController.swift; sourceTree = "<group>"; };
 		0D766E7E21DEEEBD002D379B /* CareFriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareFriendTableViewCell.swift; sourceTree = "<group>"; };
+		0D96844421FD47F800A8DC00 /* UIDevice+DeviceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+DeviceType.swift"; sourceTree = "<group>"; };
 		0D9A5C1821EBC75000BD5BCF /* tone-beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "tone-beep.wav"; sourceTree = "<group>"; };
 		0DDC2DE321DB08B400222802 /* RippleAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RippleAnimation.json; sourceTree = "<group>"; };
 		0DF3450E21E82FDE00FC4E42 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 		0D14F4B121F51DB40087D039 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				0D96844421FD47F800A8DC00 /* UIDevice+DeviceType.swift */,
 				0D14F4A821F4F7500087D039 /* UIColor+PilloColors.swift */,
 				0D14F4A621F4F5150087D039 /* UIView+Helpers.swift */,
 			);
@@ -306,6 +309,7 @@
 				0D14F4AD21F51A170087D039 /* NSLayoutConstraint+DevicePriority.swift in Sources */,
 				0D766E7F21DEEEBD002D379B /* CareFriendTableViewCell.swift in Sources */,
 				0D766E7D21DEDDBB002D379B /* CareFriendsViewController.swift in Sources */,
+				0D96844521FD47F800A8DC00 /* UIDevice+DeviceType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

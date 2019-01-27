@@ -10,7 +10,6 @@ import UIKit
 
 extension NSLayoutConstraint {
     func iPhoneXPriority(maxPriority:Float, minPriority:Float) {
-        let device = UIDevice.current.name
-        self.priority = device != "iPhone X" ? UILayoutPriority(maxPriority) : UILayoutPriority(minPriority)
+        self.priority = UIDevice.current.device != .iPhoneXXSXRXP ? UILayoutPriority(maxPriority) : UILayoutPriority(minPriority)
     }
 }
