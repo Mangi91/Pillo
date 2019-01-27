@@ -14,6 +14,7 @@ class CallingViewController: UIViewController {
     @IBOutlet weak var animationViewContainer: UIView!
     @IBOutlet weak var friendNameLabel: UILabel!
     @IBOutlet weak var friendNameLabelTop: NSLayoutConstraint!
+    @IBOutlet weak var hangupButton: UIButton!
     
     public var friendImageName: String!
     public var friendName: String!
@@ -32,6 +33,9 @@ class CallingViewController: UIViewController {
         setupAnimationView()
         setupFriend(withFriendName:friendName, andFriendImage: UIImage(named:friendImageName)!)
         soundEffect = AVAudioPlayer(withResource:"tone-beep.wav", numberOfLoops:3)
+        
+        friendNameLabel.accessibilityIdentifier = "friendName"
+        hangupButton.accessibilityIdentifier = "callingHangupButton"
     }
     
     override func viewDidLayoutSubviews() {

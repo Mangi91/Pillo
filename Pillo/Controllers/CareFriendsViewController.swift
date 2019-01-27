@@ -35,6 +35,8 @@ class CareFriendsViewController: UIViewController {
         
         carefriendsTitleLabelTopConstraint.iPhoneXPriority(maxPriority: 1000, minPriority: 998)
         careTeamLabelTopConstraint.iPhoneXPriority(maxPriority: 1000, minPriority: 998)
+        
+        friendsTableView.accessibilityIdentifier = "careFriendsTable"
     }
     
     override func viewDidLayoutSubviews() {
@@ -51,4 +53,3 @@ class CareFriendsViewController: UIViewController {
         }
     }
 }
-

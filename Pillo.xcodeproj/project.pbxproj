@@ -20,6 +20,7 @@
 		0D2EE17C21D9833000912A4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D2EE17A21D9833000912A4F /* LaunchScreen.storyboard */; };
 		0D766E7D21DEDDBB002D379B /* CareFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D766E7C21DEDDBB002D379B /* CareFriendsViewController.swift */; };
 		0D766E7F21DEEEBD002D379B /* CareFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D766E7E21DEEEBD002D379B /* CareFriendTableViewCell.swift */; };
+		0D8BA9C421FD8251001840F6 /* PilloUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8BA9C321FD8251001840F6 /* PilloUITests.swift */; };
 		0D96844521FD47F800A8DC00 /* UIDevice+DeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D96844421FD47F800A8DC00 /* UIDevice+DeviceType.swift */; };
 		0D9A5C1921EBC75000BD5BCF /* tone-beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0D9A5C1821EBC75000BD5BCF /* tone-beep.wav */; };
 		0DDC2DE421DB08B500222802 /* RippleAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0DDC2DE321DB08B400222802 /* RippleAnimation.json */; };
@@ -27,6 +28,16 @@
 		0DFBDDF421E1BCCB00D67698 /* AnsweringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFBDDF321E1BCCB00D67698 /* AnsweringViewController.swift */; };
 		1C349E257A51A87B3BFA0916 /* Pods_Pillo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9428BC5995BD3DE900B45A4E /* Pods_Pillo.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0D8BA9C621FD8251001840F6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0D2EE16621D9832F00912A4F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0D2EE16D21D9832F00912A4F;
+			remoteInfo = Pillo;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		029F9BCAAC6CB773308BE08B /* Pods-Pillo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pillo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pillo/Pods-Pillo.release.xcconfig"; sourceTree = "<group>"; };
@@ -45,6 +56,9 @@
 		0D2EE17D21D9833000912A4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D766E7C21DEDDBB002D379B /* CareFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareFriendsViewController.swift; sourceTree = "<group>"; };
 		0D766E7E21DEEEBD002D379B /* CareFriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareFriendTableViewCell.swift; sourceTree = "<group>"; };
+		0D8BA9C121FD8251001840F6 /* PilloUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PilloUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D8BA9C321FD8251001840F6 /* PilloUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilloUITests.swift; sourceTree = "<group>"; };
+		0D8BA9C521FD8251001840F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D96844421FD47F800A8DC00 /* UIDevice+DeviceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+DeviceType.swift"; sourceTree = "<group>"; };
 		0D9A5C1821EBC75000BD5BCF /* tone-beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "tone-beep.wav"; sourceTree = "<group>"; };
 		0DDC2DE321DB08B400222802 /* RippleAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RippleAnimation.json; sourceTree = "<group>"; };
@@ -60,6 +74,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C349E257A51A87B3BFA0916 /* Pods_Pillo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D8BA9BE21FD8251001840F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				0D2EE17021D9832F00912A4F /* Pillo */,
+				0D8BA9C221FD8251001840F6 /* PilloUITests */,
 				0D2EE16F21D9832F00912A4F /* Products */,
 				F014B940F856D8B7D91691CE /* Pods */,
 				044739D6B4A0607AF77067A6 /* Frameworks */,
@@ -146,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				0D2EE16E21D9832F00912A4F /* Pillo.app */,
+				0D8BA9C121FD8251001840F6 /* PilloUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -164,6 +187,15 @@
 				0D2EE17D21D9833000912A4F /* Info.plist */,
 			);
 			path = Pillo;
+			sourceTree = "<group>";
+		};
+		0D8BA9C221FD8251001840F6 /* PilloUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0D8BA9C321FD8251001840F6 /* PilloUITests.swift */,
+				0D8BA9C521FD8251001840F6 /* Info.plist */,
+			);
+			path = PilloUITests;
 			sourceTree = "<group>";
 		};
 		F014B940F856D8B7D91691CE /* Pods */ = {
@@ -197,6 +229,24 @@
 			productReference = 0D2EE16E21D9832F00912A4F /* Pillo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		0D8BA9C021FD8251001840F6 /* PilloUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0D8BA9CA21FD8251001840F6 /* Build configuration list for PBXNativeTarget "PilloUITests" */;
+			buildPhases = (
+				0D8BA9BD21FD8251001840F6 /* Sources */,
+				0D8BA9BE21FD8251001840F6 /* Frameworks */,
+				0D8BA9BF21FD8251001840F6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0D8BA9C721FD8251001840F6 /* PBXTargetDependency */,
+			);
+			name = PilloUITests;
+			productName = PilloUITests;
+			productReference = 0D8BA9C121FD8251001840F6 /* PilloUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -209,6 +259,10 @@
 				TargetAttributes = {
 					0D2EE16D21D9832F00912A4F = {
 						CreatedOnToolsVersion = 10.1;
+					};
+					0D8BA9C021FD8251001840F6 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 0D2EE16D21D9832F00912A4F;
 					};
 				};
 			};
@@ -226,6 +280,7 @@
 			projectRoot = "";
 			targets = (
 				0D2EE16D21D9832F00912A4F /* Pillo */,
+				0D8BA9C021FD8251001840F6 /* PilloUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -240,6 +295,13 @@
 				0DDC2DE421DB08B500222802 /* RippleAnimation.json in Resources */,
 				0D2EE17721D9832F00912A4F /* Main.storyboard in Resources */,
 				0D9A5C1921EBC75000BD5BCF /* tone-beep.wav in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D8BA9BF21FD8251001840F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,7 +375,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0D8BA9BD21FD8251001840F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D8BA9C421FD8251001840F6 /* PilloUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0D8BA9C721FD8251001840F6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0D2EE16D21D9832F00912A4F /* Pillo */;
+			targetProxy = 0D8BA9C621FD8251001840F6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0D2EE17521D9832F00912A4F /* Main.storyboard */ = {
@@ -489,6 +567,44 @@
 			};
 			name = Release;
 		};
+		0D8BA9C821FD8251001840F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 79WAJT7FB8;
+				INFOPLIST_FILE = PilloUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.manuelcubillo.PilloUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Pillo;
+			};
+			name = Debug;
+		};
+		0D8BA9C921FD8251001840F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 79WAJT7FB8;
+				INFOPLIST_FILE = PilloUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.manuelcubillo.PilloUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Pillo;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -506,6 +622,15 @@
 			buildConfigurations = (
 				0D2EE18121D9833000912A4F /* Debug */,
 				0D2EE18221D9833000912A4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0D8BA9CA21FD8251001840F6 /* Build configuration list for PBXNativeTarget "PilloUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D8BA9C821FD8251001840F6 /* Debug */,
+				0D8BA9C921FD8251001840F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

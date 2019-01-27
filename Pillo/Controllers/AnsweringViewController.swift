@@ -18,6 +18,7 @@ class AnsweringViewController: UIViewController {
     @IBOutlet weak var callingLabel: UILabel!
     @IBOutlet weak var cameraViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var callingLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var hangupButton: UIButton!
     
     public var callingName:String!
     
@@ -52,6 +53,9 @@ class AnsweringViewController: UIViewController {
         
         let displayLink = CADisplayLink(target: self, selector: #selector(updateTimer))
         displayLink.add(to: .main, forMode: .default)
+        
+        callingLabel.accessibilityIdentifier = "callingFriendLabel"
+        hangupButton.accessibilityIdentifier = "answeringHangupButton"
     }
     
     override func viewDidLayoutSubviews() {

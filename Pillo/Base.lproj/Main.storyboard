@@ -69,6 +69,7 @@
                         <outlet property="animationViewContainer" destination="9D5-GK-Iyn" id="kwW-XY-Zvz"/>
                         <outlet property="friendNameLabel" destination="hpa-Ae-Wkt" id="hLS-je-cPE"/>
                         <outlet property="friendNameLabelTop" destination="2zh-1t-0vj" id="SuG-4F-4qA"/>
+                        <outlet property="hangupButton" destination="gcM-ub-R3z" id="RW3-aI-Axe"/>
                         <segue destination="W9a-r5-5ks" kind="presentation" identifier="answerFriend" id="frp-eN-wvv"/>
                     </connections>
                 </viewController>
@@ -211,6 +212,7 @@
                         <outlet property="cameraFlipImageView" destination="mNb-rU-GDP" id="eSh-av-VBx"/>
                         <outlet property="cameraView" destination="Wox-oA-sEA" id="spX-Tn-y1t"/>
                         <outlet property="cameraViewTopConstraint" destination="mrV-8f-ITp" id="WFD-6E-Fl9"/>
+                        <outlet property="hangupButton" destination="VfP-AG-kXr" id="efN-fj-Tmg"/>
                         <outlet property="timerContainerView" destination="6CX-Uq-AT6" id="MQd-0s-QcV"/>
                         <outlet property="timerLabel" destination="lp2-P8-yBN" id="v7Z-Zn-sot"/>
                     </connections>
