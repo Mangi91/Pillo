@@ -13,6 +13,7 @@ class PilloUITests: XCTestCase {
     private var app: XCUIApplication!
 
     override func setUp() {
+        super.setUp()
         continueAfterFailure = false
         app = XCUIApplication()
         app.launch()
@@ -20,11 +21,12 @@ class PilloUITests: XCTestCase {
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
     }
 
     func testDontSegueToCallingIfPendingFriend() {
         let careFriendsTable = app.tables["careFriendsTable"]
-        let friendCell = careFriendsTable.cells.containing(.image, identifier:"celina").firstMatch
+        let friendCell = careFriendsTable.cells.staticTexts["Celina Thompson"]
         friendCell.tap()
         
         XCTAssert(careFriendsTable.exists, "Expected to find Care Friends table but didn't")
@@ -33,11 +35,9 @@ class PilloUITests: XCTestCase {
     func testSegueToCallingIfFriend() {
         //tap approved friend
         let careFriendsTable = app.tables["careFriendsTable"]
-        let friendCell = careFriendsTable.cells.containing(.image, identifier:"alicia").firstMatch
+        let friendCell = careFriendsTable.cells.staticTexts["Alicia Cory"]
         friendCell.tap()
-        
-        XCTAssertFalse(careFriendsTable.exists, "Expected to not find Care Friends table but did")
-        
+                
         //confirm on Calling VC
         let careFriendName = app.staticTexts["friendName"]
         XCTAssert(careFriendName.exists, "Expected to find friend name label but didn't")
@@ -45,11 +45,10 @@ class PilloUITests: XCTestCase {
     
     func testHangupCallFromCallingIfTapHangupButton() {
         let careFriendsTable = app.tables["careFriendsTable"]
-        let friendCell = careFriendsTable.cells.containing(.image, identifier:"alicia").firstMatch
+        let friendCell = careFriendsTable.cells.staticTexts["Alicia Cory"]
         friendCell.tap()
         
         let hangupButton = app.buttons["callingHangupButton"]
-        XCTAssert(hangupButton.exists,"Expected to find hang up button but didn't")
         hangupButton.tap()
         
         XCTAssert(careFriendsTable.exists, "Expected to find Care Friends table but didn't")
@@ -57,7 +56,7 @@ class PilloUITests: XCTestCase {
     
     func testSegueToAnswerIfCalling() {
         let careFriendsTable = app.tables["careFriendsTable"]
-        let friendCell = careFriendsTable.cells.containing(.image, identifier:"alicia").firstMatch
+        let friendCell = careFriendsTable.cells.staticTexts["Alicia Cory"]
         friendCell.tap()
         
         //Label on AnswerVC
@@ -65,9 +64,7 @@ class PilloUITests: XCTestCase {
         XCTAssertFalse(callingFriendLabel.exists, "Expected to not find Calling Friend label but did")
         
         //wait for segue to AnswerVC
-        let predicate = NSPredicate(format:"exists == 1")
-        let exp = expectation(for: predicate, evaluatedWith: callingFriendLabel, handler: nil)
-        let result = XCTWaiter.wait(for: [exp], timeout: 7.0)
+        let result = waitForUIElementToExist(element: callingFriendLabel, wait: 7.0)
         
         if result == XCTWaiter.Result.completed {
             XCTAssert(callingFriendLabel.exists,"Expected to find Calling Friend label but didn't")
@@ -78,16 +75,14 @@ class PilloUITests: XCTestCase {
     
     func testHangupCallFromAnswerIfTapHangupButton() {
         let careFriendsTable = app.tables["careFriendsTable"]
-        let friendCell = careFriendsTable.cells.containing(.image, identifier:"alicia").firstMatch
+        let friendCell = careFriendsTable.cells.staticTexts["Alicia Cory"]
         friendCell.tap()
         
         let hangupButton = app.buttons["answeringHangupButton"]
         XCTAssertFalse(hangupButton.exists, "Expected to not find Answering hang up button but did")
         
         //wait for segue to AnswerVC
-        let predicate = NSPredicate(format:"exists == 1")
-        let exp = expectation(for: predicate, evaluatedWith: hangupButton, handler: nil)
-        let result = XCTWaiter.wait(for: [exp], timeout: 7.0)
+        let result = waitForUIElementToExist(element: hangupButton, wait: 7.0)
         
         if result == XCTWaiter.Result.completed {
             XCTAssert(hangupButton.exists,"Expected to find Anwering hang up button but didn't")
@@ -99,32 +94,36 @@ class PilloUITests: XCTestCase {
         XCTAssert(careFriendsTable.exists,"Expected to find Care Friends table but didn't")
     }
     
-    func testCallingLabelIsFriendNameIfSegueToCalling() {
+    func testCallingLabelContainsFriendNameIfSegueToCalling() {
         let careFriendsTable = app.tables["careFriendsTable"]
-        let friendCell = careFriendsTable.cells.containing(.image, identifier:"alicia").firstMatch
+        let friendCell = careFriendsTable.cells.staticTexts["Alicia Cory"]
         friendCell.tap()
         
         let careFriendName = app.staticTexts["friendName"]
         XCTAssertEqual(careFriendName.label , "Alicia Cory")
     }
     
-    func testCallingLabelIsFriendNameIfSegueToAnswering() {
+    func testCallingLabelContainsFriendNameIfSegueToAnswering() {
         let careFriendsTable = app.tables["careFriendsTable"]
-        let friendCell = careFriendsTable.cells.containing(.image, identifier:"alicia").firstMatch
+        let friendCell = careFriendsTable.cells.staticTexts["Alicia Cory"]
         friendCell.tap()
         
         let callingFriendLabel = app.staticTexts["callingFriendLabel"]
         XCTAssertFalse(callingFriendLabel.exists, "Expected to not find Calling Friend Label but did")
         
         //wait for segue to AnswerVC
-        let predicate = NSPredicate(format:"exists == 1")
-        let exp = expectation(for: predicate, evaluatedWith: callingFriendLabel, handler: nil)
-        let result = XCTWaiter.wait(for: [exp], timeout: 7.0)
+        let result = waitForUIElementToExist(element: callingFriendLabel, wait: 7.0)
         
         if result == XCTWaiter.Result.completed {
-            XCTAssertEqual(callingFriendLabel.label,"Alicia Cory")
+            XCTAssertEqual(callingFriendLabel.label, "Alicia Cory")
         } else {
             XCTAssert(false,"Issue occured seguing to AnswerVC")
         }
+    }
+    
+    func waitForUIElementToExist(element: XCUIElement, wait: TimeInterval) -> XCTWaiter.Result {
+        let predicate = NSPredicate(format:"exists == 1")
+        let exp = expectation(for: predicate, evaluatedWith: element, handler: nil)
+        return XCTWaiter.wait(for: [exp], timeout: wait)
     }
 }
