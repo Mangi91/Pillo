@@ -86,8 +86,8 @@ class CallingViewController: UIViewController {
         animationView?.translatesAutoresizingMaskIntoConstraints = false
         self.view.addConstraints([
             NSLayoutConstraint(item:animationView as Any, attribute: .top, relatedBy: .equal, toItem: animationViewContainer, attribute: .top, multiplier: 1.0, constant: 0),
-            NSLayoutConstraint(item:animationViewContainer, attribute: .trailing, relatedBy: .equal, toItem: animationView, attribute: .trailing, multiplier: 1.0, constant: 0),
-            NSLayoutConstraint(item:animationViewContainer, attribute: .bottom, relatedBy: .equal, toItem: animationView, attribute: .bottom, multiplier: 1.0, constant: 0),
+            NSLayoutConstraint(item:animationViewContainer as Any, attribute: .trailing, relatedBy: .equal, toItem: animationView, attribute: .trailing, multiplier: 1.0, constant: 0),
+            NSLayoutConstraint(item:animationViewContainer as Any, attribute: .bottom, relatedBy: .equal, toItem: animationView, attribute: .bottom, multiplier: 1.0, constant: 0),
             NSLayoutConstraint(item:animationView as Any, attribute: .leading, relatedBy: .equal, toItem: animationViewContainer, attribute: .leading, multiplier: 1.0, constant: 0)
         ])
     }

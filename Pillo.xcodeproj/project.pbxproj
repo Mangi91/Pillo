@@ -24,6 +24,7 @@
 		0D96844521FD47F800A8DC00 /* UIDevice+DeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D96844421FD47F800A8DC00 /* UIDevice+DeviceType.swift */; };
 		0D9A5C1921EBC75000BD5BCF /* tone-beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0D9A5C1821EBC75000BD5BCF /* tone-beep.wav */; };
 		0DDC2DE421DB08B500222802 /* RippleAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 0DDC2DE321DB08B400222802 /* RippleAnimation.json */; };
+		0DF28B6E24023F0100AC3208 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D2EE17521D9832F00912A4F /* Main.storyboard */; };
 		0DF3450F21E82FDE00FC4E42 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF3450E21E82FDE00FC4E42 /* Platform.swift */; };
 		0DFBDDF421E1BCCB00D67698 /* AnsweringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFBDDF321E1BCCB00D67698 /* AnsweringViewController.swift */; };
 		1C349E257A51A87B3BFA0916 /* Pods_Pillo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9428BC5995BD3DE900B45A4E /* Pods_Pillo.framework */; };
@@ -304,6 +305,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DF28B6E24023F0100AC3208 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,6 +541,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 79WAJT7FB8;
 				INFOPLIST_FILE = Pillo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -558,6 +561,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 79WAJT7FB8;
 				INFOPLIST_FILE = Pillo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
