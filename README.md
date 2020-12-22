@@ -10,7 +10,7 @@ When working in healthcare sphere, giving a perfect shape to a multifunctional i
 ## Requirements
 
 - iOS 12.1+
-- Xcode 11.3
+- Xcode 9.3+
 
 ## Running Pillo
 - when launching the xcode project please use the `Pillo.xcworkspace` file as the app uses **CocoaPods** and won't work otherwise.
@@ -38,7 +38,7 @@ import AVFoundation
     -AVCaptureDevice
 ```
 
-[swift-image]:https://img.shields.io/badge/swift-12.1-green.svg
+[swift-image]:https://img.shields.io/badge/swift-5.0-green.svg
 [swift-url]: https://swift.org/
 
 
