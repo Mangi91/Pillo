@@ -15,7 +15,7 @@ When working in healthcare sphere, giving a perfect shape to a multifunctional i
 ## Running Pillo
 - when launching the xcode project please use the `Pillo.xcworkspace` file as the app uses **CocoaPods** and won't work otherwise.
 
-## Frameworks
+## Frameworks & Libraries
 ``` swift
 import UIKit
     -UITableView
@@ -27,6 +27,7 @@ import UIKit
     -UIStoryboardSegue
     -NSLayoutContraint
     -CAGradientLayer
+    -CADisplayLink
 import Lottie
     -LOTAnimationView
 import AVFoundation
